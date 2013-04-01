@@ -1,0 +1,27 @@
+name:          devalot-hakyll
+version:       0.1.1.0
+synopsis:      Hakyll utilities for Devalot.com
+license:       BSD3
+license-file:  LICENSE
+author:        Peter Jones <pjones@pmade.com>
+maintainer:    Peter Jones <pjones@pmade.com>
+copyright:     Copyright (C) 2013 Peter Jones
+category:      Web
+build-type:    Simple
+cabal-version: >=1.8
+
+library
+  exposed-modules: Hakyll.Web.Heist
+  hs-source-dirs: src
+  ghc-options: -Wall
+  build-depends: base          == 4.5.*
+               , hakyll        == 4.1.*
+               , heist         == 0.11.*
+               , blaze-builder == 0.3.*
+               , bytestring    == 0.9.*
+               , errors        == 1.3.*
+               , mtl           == 2.1.*
+               , text          == 0.11.*
+               , transformers  == 0.3.*
+               , utf8-string   == 0.3.*
+               , xmlhtml       == 0.2.*
