@@ -2,10 +2,10 @@
 
 {-
 
-This file is part of the package hakyll-heist. It is subject to the
+This file is part of the package devalot-hakyll. It is subject to the
 license terms in the LICENSE file found in the top-level directory of
-this distribution and at git://pmade.com/hakyll-heist/LICENSE.  No
-part of hakyll-heist package, including this file, may be copied,
+this distribution and at git://pmade.com/devalot-hakyll/LICENSE.  No
+part of devalot-hakyll package, including this file, may be copied,
 modified, propagated, or distributed except according to the terms
 contained in the LICENSE file.
 
