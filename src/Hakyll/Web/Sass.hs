@@ -10,10 +10,7 @@ contained in the LICENSE file.
 -}
 
 --------------------------------------------------------------------------------
-module Hakyll.Web.Sass
-       ( sassCompiler
-       , scssCompiler
-       ) where
+module Hakyll.Web.Sass (sassCompiler , scssCompiler) where
 
 --------------------------------------------------------------------------------
 import Hakyll.Core.Compiler (Compiler, getResourceString, makeItem)
@@ -22,10 +19,12 @@ import Hakyll.Core.UnixFilter (unixFilter)
 import Hakyll.Web.CompressCss (compressCss)
 
 --------------------------------------------------------------------------------
+-- | Convert a @*.sass@ file into compressed CSS.
 sassCompiler :: Compiler (Item String)
 sassCompiler = toCSS "sass"
 
 --------------------------------------------------------------------------------
+-- | Convert a @*.scss@ file into compress CSS.
 scssCompiler :: Compiler (Item String)
 scssCompiler = toCSS "scss"
 

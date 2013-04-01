@@ -1,6 +1,6 @@
 name:          devalot-hakyll
 version:       0.1.1.0
-synopsis:      Hakyll utilities for Devalot.com
+synopsis:      Hakyll extensions for Devalot.com
 license:       BSD3
 license-file:  LICENSE
 author:        Peter Jones <pjones@pmade.com>
@@ -12,7 +12,9 @@ cabal-version: >=1.8
 
 library
   exposed-modules: Hakyll.Web.Heist
+                   Hakyll.Web.JavaScript
                    Hakyll.Web.Sass
+                   
   hs-source-dirs: src
   ghc-options: -Wall
   build-depends: base          == 4.5.*
@@ -23,6 +25,6 @@ library
                , errors        == 1.4.*
                , mtl           == 2.1.*
                , text          == 0.11.*
-               , transformers  == 0.3.*
                , utf8-string   == 0.3.*
                , xmlhtml       == 0.2.*
+               , hjsmin        == 0.1.4.*
