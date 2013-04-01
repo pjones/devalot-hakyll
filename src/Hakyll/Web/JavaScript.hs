@@ -10,16 +10,29 @@ contained in the LICENSE file.
 -}
 
 --------------------------------------------------------------------------------
-module Hakyll.Web.JavaScript (jsCompiler) where
+module Hakyll.Web.JavaScript (jsCompiler, jsCreate) where
 
 --------------------------------------------------------------------------------
 import Control.Applicative ((<$>))
 import Data.ByteString.Lazy.UTF8 (toString)
-import Hakyll.Core.Compiler (Compiler, getResourceLBS)
-import Hakyll.Core.Item (Item)
+import Hakyll
 import Text.Jasmine (minify)
 
 --------------------------------------------------------------------------------
 -- | Compile a JavaScript file by minimizing it.
 jsCompiler :: Compiler (Item String)
 jsCompiler = fmap (toString . minify) <$> getResourceLBS
+
+--------------------------------------------------------------------------------
+-- | Compile all matching JavaScript files into a single file.
+jsCreate :: Identifier -- ^ The name of the output file to create.
+         -> Pattern    -- ^ A pattern to match all of the input files.
+         -> Rules ()   -- ^ Rules for Hakyll.
+jsCreate file pattern = do
+    match pattern $ compile jsCompiler
+    create [file] $ do
+      route idRoute
+      compile $ do
+        files <- (loadAll pattern' :: Compiler [Item String])
+        makeItem $ concatMap itemBody files
+  where pattern' = pattern .&&. complement (fromList [file])
