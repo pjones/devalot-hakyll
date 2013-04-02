@@ -15,6 +15,7 @@ module Hakyll.Web.JavaScript (jsCompiler, jsCreate) where
 --------------------------------------------------------------------------------
 import Control.Applicative ((<$>))
 import Data.ByteString.Lazy.UTF8 (toString)
+import Data.List (intercalate)
 import Hakyll
 import Text.Jasmine (minify)
 
@@ -34,5 +35,5 @@ jsCreate file pattern = do
       route idRoute
       compile $ do
         files <- (loadAll pattern' :: Compiler [Item String])
-        makeItem $ concatMap itemBody files
+        makeItem $ intercalate ";\n" $ map itemBody files
   where pattern' = pattern .&&. complement (fromList [file])
