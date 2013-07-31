@@ -1,22 +1,14 @@
 ################################################################################
-SITE = dist/build/site/site
-
-################################################################################
 .PHONEY: all clean test
 
 ################################################################################
 all:
-	cabal configure && cabal build
-	(cd example && \
-	  cabal configure && cabal build && $(SITE) build)
+	cabal-dev install
 
 ################################################################################
 clean:
-	cabal clean
-	(cd example && test -r $(SITE) && $(SITE) clean || echo)
-	(cd example && cabal clean)
+	cabal-dev clean
 
 ################################################################################
 test:
-	cabal configure --enable-tests && \
-	  cabal build && cabal test
+	cabal-dev install --enable-tests

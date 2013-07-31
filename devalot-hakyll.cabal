@@ -1,5 +1,5 @@
 name:          devalot-hakyll
-version:       0.1.1.0
+version:       0.2.0.0
 synopsis:      Hakyll extensions for Devalot.com
 license:       BSD3
 license-file:  LICENSE
@@ -11,20 +11,22 @@ build-type:    Simple
 cabal-version: >=1.8
 
 library
-  exposed-modules: Hakyll.Web.Heist
-                   Hakyll.Web.JavaScript
-                   Hakyll.Web.Sass
+  exposed-modules: 
+    Hakyll.Web.Heist
+    Hakyll.Web.JavaScript
+    Hakyll.Web.Sass
                    
   hs-source-dirs: src
   ghc-options: -Wall
-  build-depends: base          == 4.5.*
-               , hakyll        == 4.1.*
-               , heist         == 0.11.1.*
-               , blaze-builder == 0.3.*
-               , bytestring    == 0.9.*
-               , errors        == 1.4.*
-               , mtl           == 2.1.*
-               , text          == 0.11.*
-               , utf8-string   == 0.3.*
-               , xmlhtml       == 0.2.*
-               , hjsmin        == 0.1.4.*
+  build-depends: 
+    base           >= 4.4   && < 5.0,
+    hakyll         >= 4.1   && < 4.2,
+    heist          >= 0.11  && < 0.12,
+    blaze-builder  >= 0.3   && < 0.4,
+    bytestring     >= 0.9   && < 0.11,
+    errors         >= 1.4   && < 1.5,
+    mtl            >= 2.1   && < 2.2,
+    text           >= 0.11  && < 0.12,
+    utf8-string    >= 0.3   && < 0.4,
+    xmlhtml        >= 0.2   && < 0.3,
+    hjsmin         >= 0.1.4 && < 0.1.5
